@@ -1,0 +1,112 @@
+ccpUser = "YOURUSERNAME"
+ccpPass = "YOURPASSWORD"
+ccpURL = "YOUR CCP URL"
+
+ccpClusterName = "tiger"
+apicHosts = "YOUR APICS"
+apicUser = "YOURUSERNAME"
+apicPass = "YOURPASSWORD"
+
+
+ccpProviderID="7edf7613-ba52-4b3b-8d57-6bc0e29a5ddd"
+k8sVersion="1.17.6"
+k8sTemplate="ccp-tenant-image-1.17.6-ubuntu18-7.0.0"
+ccpSshUser="ccpuser"
+ccpSshKey="YOUR KEY"
+
+appProfile="hipster"
+epgs=["redis","frontend","ad","cart","checkout","currency","email","payment","productCatalog","recommendation","shipping","loadgenerator"]
+
+contracts={
+    "redis" = "6379"
+    "frontend" = "80"
+    "ad" = "9555"
+    "cart" = "7070"
+    "checkout" = "5050"
+    "currency" = "7000"
+    "email" = "5000"
+    "payment" = "50051"
+    "productCatalog" = "3550"
+    "recommendation" = "8080"
+    "shipping" = "50051"
+}
+
+hipsterContracts=[
+        {
+        name = "redis"
+        port = "6379"
+        provide = ["redis"]
+        consume = [""]
+    },
+
+        {
+        name = "frontend"
+        port = "80"
+        provide = ["frontend"]
+        consume = ["ad","cart","checkout","currency","productCatalog","recommendation","shipping",]
+    },
+    
+        {
+        name = "ad"
+        port = "955"
+        provide = ["ad"]
+        consume = [""]
+    },
+    
+        {
+        name = "cart"
+        port = "7070"
+        provide = ["cart"]
+        consume = ["redis"]
+    },
+    
+        {
+        name = "checkout"
+        port = "5050"
+        provide = ["checkout"]
+        consume = ["cart","currency","email","payment","productCatalog","shipping"]
+    },
+    
+        {
+        name = "currency"
+        port = "7000"
+        provide = ["currency"]
+        consume = [""]
+    },
+    
+        {
+        name = "email"
+        port = "5000"
+        provide = ["email"]
+        consume = [""]
+    },
+    
+        {
+        name = "payment"
+        port = "50051"
+        provide = ["payment"]
+        consume = [""]
+    },
+    
+        {
+        name = "productCatalog"
+        port = "3550"
+        provide = ["productCatalog"]
+        consume = [""]
+    },
+    
+        {
+        name = "recommendation"
+        port = "8080"
+        provide = ["recommendation"]
+        consume = ["productCatalog"]
+    },
+    
+        {
+        name = "shipping"
+        port = "50051"
+        provide = ["shipping"]
+        consume = [""]
+    }
+]
+
