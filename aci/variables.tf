@@ -24,13 +24,6 @@ variable "ccpSshKey" {}
 */
 
 variable "appProfile" {}
-variable "epgs" {
-    type = list(string)
-}
-variable "contracts" {
-    type = map(string)
-}
-
 variable "hipsterContracts" {
     type = list(object({
         name = string,
